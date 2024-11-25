@@ -9,5 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
+[x: string]: any;
   title = 'hundirLaFlota';
+
+   showcasilla(id:any) {     
+    console.log(id);
+}
 }
