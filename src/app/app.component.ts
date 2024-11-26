@@ -9,7 +9,7 @@ import {Barco} from '../models/Barco';
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-[x: string]: any;
+
   title = 'hundirLaFlota';
 
   disparosTotales= new Array<String>;
