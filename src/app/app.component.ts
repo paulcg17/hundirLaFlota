@@ -52,7 +52,7 @@ export class AppComponent {
     }
   }
 
-   showcasilla(id:any) {     
+  showcasilla(id:any) {     
     console.log(id);
 }
 }
