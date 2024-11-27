@@ -1,14 +1,12 @@
 export class Barco {
     tamano: number;
-    posicion: boolean;
-    coord = new Array<String>;
+    coordBarco : number[][];
     estado: boolean;
 
-
-    constructor(tamano: number, posicion: boolean, coord: Array<String>, estado: boolean) {
+    
+    constructor(tamano: number, estado: boolean, coordBarco : number[][]) {
         this.tamano = tamano;
-        this.posicion = posicion;
-        this.coord = coord;
+        this.coordBarco = coordBarco;
         this.estado = estado;
     }
 }
