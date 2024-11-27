@@ -53,6 +53,7 @@ export class AppComponent {
   }
 
   showcasilla(n1 : number, n2 : number) {  
+    
     console.log(n1+" "+n2);
 }
 }
