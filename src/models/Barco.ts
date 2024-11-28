@@ -1,12 +1,16 @@
-export class Barco {
-    tamano: number;
-    coordBarco : number[][];
-    estado: boolean;
 
-    
-    constructor(tamano: number, estado: boolean, coordBarco : number[][]) {
+type Coord = [number, number];
+
+export class Barco {
+    public tamano: number;
+    public coordBarco: Coord[];
+    public estado: boolean;
+
+    constructor(tamano: number, coordBarco: Coord[]) {
+
         this.tamano = tamano;
         this.coordBarco = coordBarco;
-        this.estado = estado;
+        this.estado = true; 
     }
+
 }

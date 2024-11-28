@@ -19,13 +19,19 @@ export class AppComponent {
   disparosTotales = new Array<String>;
   barcosEnemigos = new Array<Barco>; // ESTO ES UNA LISTA DE BARCOS ENEMIGOS.
 
+  constructor() {
+    this.barcosEnemigos = [
+      new Barco(2, [[1, 1],[1,2]]),
+      new Barco(3, [[2, 1],[2,2],[3,2]]),
+    ];
+  }
 
   disparo(x: number, y: number) {
     this.tableroP[x][y].url = "img/tocado.png"; //ESTO LO HA HECHO ANDER, HAY QUE MODIFICARLO.
   }
 
-  confirmacionDisparo(coord: String) {
-    // ESTO LO HACE MARIO
+  confirmacionDisparo(n1: number, n2: number) {
+    
   }
 
   verificarMuerte(barco: Barco) {
@@ -45,10 +51,8 @@ export class AppComponent {
   }
 
   showcasilla(n1: number, n2: number) {
-    // ESTO LO HACE CALLE
+    this.confirmacionDisparo(n1 , n2);
   }
 
-  crearBarcos() {
-    // ESTO LO HACE CARLOS
-  }
+  
 }
