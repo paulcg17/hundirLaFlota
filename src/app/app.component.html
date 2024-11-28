@@ -4,31 +4,57 @@
   </div>
   <div class="padreTablero">
     <div class="grid-container">
-      <a id="A1" (click)="showcasilla(0,0)" href="#" class="grid-item">A1<img src="img/circulo.png" ></a>
-      <a id="B1" (click)="showcasilla(1,0)" href="#" class="grid-item">B1<img src="img/cruz.png" ></a>
-      <a id="C1" (click)="showcasilla(2,0)" href="#" class="grid-item">C1<img src="img/mar.png" ></a>
-      <a id="D1" (click)="showcasilla(3,0)" href="#" class="grid-item">D1</a>
-      <a id="E1" (click)="showcasilla(4,0)" href="#" class="grid-item">E1</a>
-      <a id="A2" (click)="showcasilla(0,1)" href="#" class="grid-item">A2</a>
-      <a id="B2" (click)="showcasilla(1,1)" href="#" class="grid-item">B2</a>
-      <a id="C2" (click)="showcasilla(2,1)" href="#" class="grid-item">C2</a>
-      <a id="D2" (click)="showcasilla(3,1)" href="#" class="grid-item">D2</a>
-      <a id="E2" (click)="showcasilla(4,1)" href="#" class="grid-item">E2</a>
-      <a id="A3" (click)="showcasilla(0,2)" href="#" class="grid-item">A3</a>
-      <a id="B3" (click)="showcasilla(1,2)" href="#" class="grid-item">B3</a>
-      <a id="C3" (click)="showcasilla(2,2)" href="#" class="grid-item">C3</a>
-      <a id="D3" (click)="showcasilla(3,2)" href="#" class="grid-item">D3</a>
-      <a id="E3" (click)="showcasilla(4,2)" href="#" class="grid-item">E3</a>
-      <a id="A4" (click)="showcasilla(0,3)" href="#" class="grid-item">A4</a>
-      <a id="B4" (click)="showcasilla(1,3)" href="#" class="grid-item">B4</a>
-      <a id="C4" (click)="showcasilla(2,3)" href="#" class="grid-item">C4</a>
-      <a id="D4" (click)="showcasilla(3,3)" href="#" class="grid-item">D4</a>
-      <a id="E4" (click)="showcasilla(4,3)" href="#" class="grid-item">E4</a>
-      <a id="A5" (click)="showcasilla(0,4)" href="#" class="grid-item">A5</a>
-      <a id="B5" (click)="showcasilla(1,4)" href="#" class="grid-item">B5</a>
-      <a id="C5" (click)="showcasilla(2,4)" href="#" class="grid-item">C5</a>
-      <a id="D5" (click)="showcasilla(3,4)" href="#" class="grid-item">D5</a>
-      <a id="E5" (click)="showcasilla(4,4)" href="#" class="grid-item">E5</a>
+      <table>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td><a id="A1" (click)="showcasilla(0,0)" href="#" class="grid-item"><img src="img/circulo.png" ></a></td>
+            <td><a id="B1" (click)="showcasilla(1,0)" href="#" class="grid-item"><img src="img/cruz.png" ></a></td>
+            <td><a id="C1" (click)="showcasilla(2,0)" href="#" class="grid-item"><img src="img/mar.png" ></a></td>
+            <td><a id="D1" (click)="showcasilla(3,0)" href="#" class="grid-item"></a></td>
+            <td><a id="E1" (click)="showcasilla(4,0)" href="#" class="grid-item"></a></td>
+          </tr>
+            <tr>
+              <td>2</td>
+              <td><a id="A2" (click)="showcasilla(0,1)" href="#" class="grid-item"></a></td>
+              <td><a id="B2" (click)="showcasilla(0,1)" href="#" class="grid-item"></a></td>
+              <td><a id="C2" (click)="showcasilla(2,1)" href="#" class="grid-item"></a></td>
+              <td><a id="D2" (click)="showcasilla(3,1)" href="#" class="grid-item"></a></td>
+              <td><a id="E2" (click)="showcasilla(4,1)" href="#" class="grid-item"></a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><a id="A3" (click)="showcasilla(0,2)" href="#" class="grid-item"></a></td>
+              <td><a id="B3" (click)="showcasilla(1,2)" href="#" class="grid-item"></a></td>
+              <td><a id="C3" (click)="showcasilla(2,2)" href="#" class="grid-item"></a></td>
+              <td><a id="D3" (click)="showcasilla(3,2)" href="#" class="grid-item"></a></td>
+              <td><a id="E3" (click)="showcasilla(4,2)" href="#" class="grid-item"></a></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><a id="A4" (click)="showcasilla(0,3)" href="#" class="grid-item"></a></td>
+              <td><a id="B4" (click)="showcasilla(1,3)" href="#" class="grid-item"></a></td>
+              <td><a id="C4" (click)="showcasilla(2,3)" href="#" class="grid-item"></a></td>
+              <td><a id="D4" (click)="showcasilla(3,3)" href="#" class="grid-item"></a></td>
+              <td><a id="E4" (click)="showcasilla(4,3)" href="#" class="grid-item"></a></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><a id="A5" (click)="showcasilla(0,4)" href="#" class="grid-item"></a></td>
+              <td><a id="B5" (click)="showcasilla(1,4)" href="#" class="grid-item"></a></td>
+              <td><a id="C5" (click)="showcasilla(2,4)" href="#" class="grid-item"></a></td>
+              <td><a id="D5" (click)="showcasilla(3,4)" href="#" class="grid-item"></a></td>
+              <td><a id="E5" (click)="showcasilla(4,4)" href="#" class="grid-item"></a></td>
+            </tr>
+      </tbody>
+      </table>
     </div>
     </div>
   <h2 class="intentos">Nº Intentos: </h2>
