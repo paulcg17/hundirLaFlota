@@ -1,13 +1,11 @@
-
-type Coord = [number, number];
+import { Coordenadas } from "./Coordenadas";
 
 export class Barco {
     public tamano: number;
-    public coordBarco: Coord[];
+    public coordBarco: Coordenadas[];
     public estado: boolean;
 
-    constructor(tamano: number, coordBarco: Coord[]) {
-
+    constructor(tamano: number, coordBarco: Coordenadas[]) {
         this.tamano = tamano;
         this.coordBarco = coordBarco;
         this.estado = false; 

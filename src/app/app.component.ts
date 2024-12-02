@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Barco } from '../models/Barco';
 import { Tablero } from '../models/Tablero';
+import { Coordenadas } from "../models/Coordenadas";
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,62 +14,69 @@ import { Tablero } from '../models/Tablero';
 export class AppComponent {
 
   title = 'hundirLaFlota';
+  cordenada1: Coordenadas = new Coordenadas(1,1);
+  cordenada2: Coordenadas = new Coordenadas(1,2);
+  cordenada3: Coordenadas = new Coordenadas(2,1);
+  cordenada4: Coordenadas = new Coordenadas(2,2);
+  cordenada5: Coordenadas = new Coordenadas(2,3);
 
   tableroP: Tablero[][] = [[new Tablero, new Tablero, new Tablero, new Tablero, new Tablero], [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]
     , [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero], [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]
     , [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]]
-  disparosTotales = new Array<String>;
   barcosEnemigos = new Array<Barco>; // ESTO ES UNA LISTA DE BARCOS ENEMIGOS.
 
+  numberOfShootedCoordenadas:number = 0;
+  numberOfTotalCoordenadas:number = 5;
+  
   constructor() {
     this.barcosEnemigos = [
-      new Barco(2, [[1, 1],[1,2]]),
-      new Barco(3, [[2, 1],[2,2],[3,2]]),
+      new Barco(2, [this.cordenada1,this.cordenada2]),
+      new Barco(3, [this.cordenada3,this.cordenada4,this.cordenada5]),
     ];
   }
 
   disparo(x: number, y: number) {
-    if(this.confirmacionDisparo(x,y)){
-      this.tableroP[x][y].url = "img/cruz.png"; 
-    }else{
-      this.tableroP[x][y].url = "img/circulo.png";
-    }
-  }
 
-  confirmacionDisparo(n1: number, n2: number, barcosEnemigos?: Barco[]) {
-    let tocado = false;
-    for (let i=0; i < this.barcosEnemigos.length; i++){
-      if (this.barcosEnemigos[i].coordBarco[[n1][n2]]) {
-      delete this.barcosEnemigos[i].coordBarco[[n1][n2]]
-      tocado = true;
-    }
-    this.verificarMuerte(this.barcosEnemigos[i]);
-    }
-    return tocado;
-  }
+    if(this.numberOfShootedCoordenadas !== this.numberOfTotalCoordenadas){
+      if(!this.tableroP[x][y].disparado){
+        console.log("entra")
+        if(this.confirmacionDisparo(x,y)){
+          this.tableroP[x][y].url = "img/cruz.png"; 
+          this.numberOfShootedCoordenadas++;
+          console.log(this.numberOfShootedCoordenadas+"DISPARADO")
+        }else{
+          this.tableroP[x][y].url = "img/circulo.png";
+        }
 
-  verificarMuerte(barco: Barco) {
-    if(barco.coordBarco.length==0 || barco.coordBarco.length==null){
-      barco.estado=true;
-      this.finDelJuego();
-    }
-    
-  }
-
-  finDelJuego() {
-    let contador: number = 0;
-    for (let barco of this.barcosEnemigos) {
-      if (barco.estado) {
-        contador++;
+        if(this.numberOfShootedCoordenadas === this.numberOfTotalCoordenadas){
+          alert("HAS GANADO")
+        }
+      }else{
+        console.log("Ya ha sido disparado")
+        alert("Ya ha sido disparado")
       }
     }
-    if (contador == this.barcosEnemigos.length) {
-      alert("JUEGO FINALIZADO");
-    }
   }
 
+  confirmacionDisparo(n1: number, n2: number) {
+    console.log("entra2")
+    let tocado = false; 
+    this.tableroP[n1][n2].disparado = true;
+    for (let barco of this.barcosEnemigos){
+      for(let i=0; i<barco.coordBarco.length;i++){
+        if(barco.coordBarco[i].x==n1 && barco.coordBarco[i].y==n2){
+          console.log("entra3")
+          this.tableroP[n1][n2].tocado = true;        
+          tocado = true; 
+          console.log("dado");
+        }
+      }      
+    }
+    return tocado; 
+  }
   showcasilla(n1: number, n2: number) {
-    this.confirmacionDisparo(n1 , n2);
+    this.disparo(n1 , n2);
+    console.log(n1, n2)
   }
 
   
