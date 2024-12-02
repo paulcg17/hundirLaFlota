@@ -67,14 +67,46 @@ export class AppComponent {
           };
           this.barcosEnemigos.push(barco);
           colocado = true;
-   
-          // Marcar las posiciones del barco en el tablero para visualización
-          for (let j = 0; j < coords.length; j++) {
-            const [fila, columna] = coords[j].split(',').map(Number);
-            this.tableroP[fila][columna].url = 'img/barco.png'; // Opcional: imagen de barco
-          }
         }
       }
     }
+  }
+   
+  generarCoordenadasBarco(fila: number, columna: number, longitud: number, direccion: number): string[] | null {
+    const coords: string[] = [];
+    const tamanoTablero = this.tableroP.length;
+   
+    for (let i = 0; i < longitud; i++) {
+      let nuevaFila = fila;
+      let nuevaColumna = columna;
+   
+      if (direccion === 1) { // Arriba
+        nuevaFila -= i;
+      } else if (direccion === 2) { // Derecha
+        nuevaColumna += i;
+      } else if (direccion === 3) { // Abajo
+        nuevaFila += i;
+      } else if (direccion === 4) { // Izquierda
+        nuevaColumna -= i;
+      }
+   
+      if (nuevaFila < 0 || nuevaFila >= tamanoTablero || nuevaColumna < 0 || nuevaColumna >= tamanoTablero) {
+        return null; // Fuera del tablero
+      }
+   
+      coords.push(${nuevaFila},${nuevaColumna});
+    }
+    return coords;
+  }
+   
+  validarCoordenadas(coords: string[]): boolean {
+    for (let i = 0; i < coords.length; i++) {
+      for (let j = 0; j < this.barcosEnemigos.length; j++) {
+        if (this.barcosEnemigos[j].coord.indexOf(coords[i]) !== -1) {
+          return false; // Coordenada ya ocupada por otro barco
+        }
+      }
+    }
+    return true;
   }
 }
