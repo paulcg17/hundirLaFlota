@@ -27,15 +27,31 @@ export class AppComponent {
   }
 
   disparo(x: number, y: number) {
-    this.tableroP[x][y].url = "img/tocado.png"; //ESTO LO HA HECHO ANDER, HAY QUE MODIFICARLO.
+    if(this.confirmacionDisparo(x,y)){
+      this.tableroP[x][y].url = "img/cruz.png"; 
+    }else{
+      this.tableroP[x][y].url = "img/circulo.png";
+    }
   }
 
-  confirmacionDisparo(n1: number, n2: number) {
-    
+  confirmacionDisparo(n1: number, n2: number, barcosEnemigos?: Barco[]) {
+    let tocado = false;
+    for (let i=0; i < this.barcosEnemigos.length; i++){
+      if (this.barcosEnemigos[i].coordBarco[[n1][n2]]) {
+      delete this.barcosEnemigos[i].coordBarco[[n1][n2]]
+      tocado = true;
+    }
+    this.verificarMuerte(this.barcosEnemigos[i]);
+    }
+    return tocado;
   }
 
   verificarMuerte(barco: Barco) {
-    // ESTO LO HACE MARIO
+    if(barco.coordBarco.length==0 || barco.coordBarco.length==null){
+      barco.estado=true;
+      this.finDelJuego();
+    }
+    
   }
 
   finDelJuego() {

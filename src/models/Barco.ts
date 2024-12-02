@@ -10,7 +10,7 @@ export class Barco {
 
         this.tamano = tamano;
         this.coordBarco = coordBarco;
-        this.estado = true; 
+        this.estado = false; 
     }
 
 }
