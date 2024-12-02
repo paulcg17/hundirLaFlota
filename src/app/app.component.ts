@@ -49,6 +49,32 @@ export class AppComponent {
   }
 
   crearBarcos() {
-    // ESTO LO HACE CARLOS
+    const longitudesBarcos = [1, 2, 3, 4]; // Longitudes de los barcos
+    const tamanoTablero = this.tableroP.length; // Tamaño del tablero
+   
+    for (let i = 0; i < longitudesBarcos.length; i++) {
+      let colocado = false;
+      while (!colocado) {
+        const filaInicial = Math.floor(Math.random() * tamanoTablero);
+        const columnaInicial = Math.floor(Math.random() * tamanoTablero);
+        const direccion = Math.floor(Math.random() * 4) + 1; // 1: arriba, 2: derecha, 3: abajo, 4: izquierda
+   
+        const coords = this.generarCoordenadasBarco(filaInicial, columnaInicial, longitudesBarcos[i], direccion);
+        if (coords !== null && this.validarCoordenadas(coords)) {
+          const barco = {
+            coord: coords,
+            estado: false,
+          };
+          this.barcosEnemigos.push(barco);
+          colocado = true;
+   
+          // Marcar las posiciones del barco en el tablero para visualización
+          for (let j = 0; j < coords.length; j++) {
+            const [fila, columna] = coords[j].split(',').map(Number);
+            this.tableroP[fila][columna].url = 'img/barco.png'; // Opcional: imagen de barco
+          }
+        }
+      }
+    }
   }
 }
