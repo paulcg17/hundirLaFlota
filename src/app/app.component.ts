@@ -36,7 +36,6 @@ export class AppComponent {
   }
 
   disparo(x: number, y: number) {
-
     if(this.numberOfShootedCoordenadas !== this.numberOfTotalCoordenadas){
       if(!this.tableroP[x][y].disparado){
         console.log("entra")
@@ -57,7 +56,7 @@ export class AppComponent {
       }
     }
   }
-
+  
   confirmacionDisparo(n1: number, n2: number) {
     console.log("entra2")
     let tocado = false; 
