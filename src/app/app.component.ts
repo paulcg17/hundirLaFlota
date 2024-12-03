@@ -2,10 +2,14 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Barco } from '../models/Barco';
 import { Tablero } from '../models/Tablero';
+import { ComponentBodyComponent } from './component-body/component-body.component';
+import { ComponentFooterComponent } from './component-footer/component-footer.component';
+import { ComponentHeaderComponent } from './component-header/component-header.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,ComponentBodyComponent,ComponentFooterComponent,ComponentHeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
