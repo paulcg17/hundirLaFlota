@@ -19,6 +19,10 @@ export class AppComponent {
   cordenada3: Coordenadas = new Coordenadas(2,1);
   cordenada4: Coordenadas = new Coordenadas(2,2);
   cordenada5: Coordenadas = new Coordenadas(2,3);
+  cordenada6: Coordenadas = new Coordenadas(3,3);
+  cordenada7: Coordenadas = new Coordenadas(4,3);
+  cordenada8: Coordenadas = new Coordenadas(2,3);
+  cordenada9: Coordenadas = new Coordenadas(1,3);
 
   tableroP: Tablero[][] = [[new Tablero, new Tablero, new Tablero, new Tablero, new Tablero], [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]
     , [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero], [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]
@@ -32,7 +36,9 @@ export class AppComponent {
     this.barcosEnemigos = [
       new Barco(2, [this.cordenada1,this.cordenada2]),
       new Barco(3, [this.cordenada3,this.cordenada4,this.cordenada5]),
-    ];
+      new Barco(4, [this.cordenada6,this.cordenada7,this.cordenada8,this. cordenada9]),
+
+      ];
   }
 
   disparo(x: number, y: number) {
@@ -77,6 +83,6 @@ export class AppComponent {
     this.disparo(n1 , n2);
     console.log(n1, n2)
   }
-
+  
   
 }
