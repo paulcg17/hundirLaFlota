@@ -18,10 +18,10 @@ export class ComponentBodyComponent {
     cordenada3: Coordenadas = new Coordenadas(2,1);
     cordenada4: Coordenadas = new Coordenadas(2,2);
     cordenada5: Coordenadas = new Coordenadas(2,3);
-    cordenada6: Coordenadas = new Coordenadas(3,3);
-    cordenada7: Coordenadas = new Coordenadas(4,3);
-    cordenada8: Coordenadas = new Coordenadas(2,3);
-    cordenada9: Coordenadas = new Coordenadas(1,3);
+    cordenada6: Coordenadas = new Coordenadas(3,1);
+    cordenada7: Coordenadas = new Coordenadas(3,2);
+    cordenada8: Coordenadas = new Coordenadas(3,3);
+    cordenada9: Coordenadas = new Coordenadas(3,4);
   
     tableroP: Tablero[][] = [[new Tablero, new Tablero, new Tablero, new Tablero, new Tablero], [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]
       , [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero], [new Tablero, new Tablero, new Tablero, new Tablero, new Tablero]
@@ -29,7 +29,9 @@ export class ComponentBodyComponent {
     barcosEnemigos = new Array<Barco>; // ESTO ES UNA LISTA DE BARCOS ENEMIGOS.
   
     numberOfShootedCoordenadas:number = 0;
-    numberOfTotalCoordenadas:number = 5;
+    numberOfTotalCoordenadas:number = 9;
+    intento : number = 0;
+    
     
     constructor() {
       this.barcosEnemigos = [
@@ -81,7 +83,12 @@ export class ComponentBodyComponent {
     showcasilla(n1: number, n2: number) {
       this.disparo(n1 , n2);
       console.log(n1, n2)
+      this.intentos()
     }
+  intentos() {
+    this.intento ++; 
+    return this.intento; 
+  }
     
     
   }
