@@ -11,7 +11,6 @@ import { Coordenadas } from "../../models/Coordenadas";
   styleUrl: './component-body.component.sass'
 })
 export class ComponentBodyComponent {
-
     title = 'hundirLaFlota';
     cordenada1: Coordenadas = new Coordenadas(1,1);
     cordenada2: Coordenadas = new Coordenadas(1,2);
